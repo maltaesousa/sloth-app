@@ -3,16 +3,31 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-datetime
+      placeholder="Today ▼"
+      displayFormat="DD MMMM YYYY"
+      pickerFormat="DD/MMMM/YYYY"
+      [(ngModel)]="filter">
+      </ion-datetime>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="calendar"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let reservation of reservations">
+      {{reservation.name}}
+      <div class="reservation-note" item-right>
+        {{reservation.note}}
+      </div>
+    </button>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>
+
