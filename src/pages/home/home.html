@@ -20,9 +20,9 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let reservation of reservations">
-      {{reservation.name}}
+      {{reservation.user_id}}
       <div class="reservation-note" item-right>
-        {{reservation.note}}
+        {{reservation.begin}} {{reservation.end}}
       </div>
     </button>
   </ion-list>
@@ -30,4 +30,3 @@
     <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>
-

@@ -8,15 +8,15 @@ import { Reservation } from './reservation';
 @Injectable()
 
 export class ReservationService {
-  private reservationsUrl = 'api/reservations';
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private reservationsUrl = 'http://localhost:8100/api/reservations';
+  //private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
 
   getReservations(): Promise<Reservation[]> {
     return this.http.get(this.reservationsUrl)
                .toPromise()
-               .then(res => res.json().data as Reservation[])
+               .then(res => res.json() as Reservation[])
                .catch(this.handleError);
   }
 
