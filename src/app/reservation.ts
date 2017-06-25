@@ -1,8 +1,13 @@
 export class Reservation {
-  id: number;
+
+  constructor(
+    public id: number,
+    public name: string
+  ) {}
+
   /**
   begin: Date;
   end: Date;
    */
-  name: string;
+
 }

@@ -5,13 +5,42 @@
     </ion-buttons>
   </ion-navbar>
   <ion-toolbar color="primary">
-    <ion-input class="inputbar-md" placeholder="Description"></ion-input>
+    <ion-input class="inputbar-md"
+      id="name" name="name"
+      placeholder="Description"
+      [(ngModel)]="reservation.name"></ion-input>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="container">
-  <div class="row">
-      <div class="col-md-2" style="background-color: aqua">lol</div>
-      <div class="col-md-3"><ion-label>lol</ion-label></div>
-  </div>
+<ion-content>
+  <form id="reservationForm" #reservationForm="ngForm">
+    <ion-item>
+      <ion-label>Resource</ion-label>
+      <ion-select id="resource" name="resource"
+        [(ngModel)]=reservation.resource>
+        <ion-option>Ydon 15</ion-option>
+        <ion-option>Ydon 16</ion-option>
+        <ion-option>Ydon 40</ion-option>
+        <ion-option>Ydon 50</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start date</ion-label>
+      <ion-datetime
+        id="begin" name="begin"
+        displayFormat="DD MMMM YYYY"
+        pickerFormat="DD/MMMM/YYYY"
+        [(ngModel)]="reservation.begin">
+        </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End date</ion-label>
+      <ion-datetime
+        id="end" name="end"
+        displayFormat="DD MMMM YYYY"
+        pickerFormat="DD/MMMM/YYYY"
+        [(ngModel)]="reservation.end">
+        </ion-datetime>
+    </ion-item>
+  </form>
 </ion-content>

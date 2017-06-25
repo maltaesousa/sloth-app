@@ -21,10 +21,10 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let reservation of reservations">
-      {{reservation.user_id}}
-      <div class="reservation-note" item-right>
-        {{reservation.begin}} {{reservation.end}}
-      </div>
+      <h4>{{reservation.name}}</h4>
+      <p>
+        <small>{{reservation.begin | slice:0:-3 | date:'yMdjm'}} - {{ reservation.end | slice:0:-3 | date:'yMdjm' }} </small>
+      </p>
     </button>
   </ion-list>
   <ion-fab right bottom (click)="openPage()">
