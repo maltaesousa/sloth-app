@@ -18,7 +18,7 @@ export class HomePage {
     private reservationService: ReservationService) { }
 
   reservations: Reservation[];
-  filter: string;
+  filter: String = new Date().toISOString();
 
   getReservations(): void {
     this.reservationService.getReservations().then(res => this.reservations = res);
