@@ -5,10 +5,11 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { ReservationService } from './reservation.service';
+import { UserService } from './user.service';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ProfilePage } from '../pages/profile/profile';
 import { CreateReservationPage } from '../pages/create-reservation/create-reservation';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    ProfilePage,
     CreateReservationPage
   ],
   imports: [
@@ -31,14 +32,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    ProfilePage,
     CreateReservationPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ReservationService
+    {provide: 'APIUrl', useValue: 'http://localhost:8100/api'},
+    ReservationService,
+    UserService
   ]
 })
 export class AppModule {}

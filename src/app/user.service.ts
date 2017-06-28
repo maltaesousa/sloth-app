@@ -5,16 +5,16 @@ import 'rxjs/add/operator/toPromise'
 
 @Injectable()
 
-export class ResourceService {
+export class UserService {
   constructor(
     private http: Http,
     @Inject('APIUrl') private APIUrl:string
   ) {}
 
-  private resourcesUrl = this.APIUrl + '/resources';
+  private usersUrl = this.APIUrl + '/users';
 
   getResources(): Promise<any> {
-    return this.http.get(this.resourcesUrl)
+    return this.http.get(this.usersUrl)
                .toPromise()
                .then(res => res.json())
                .catch(this.handleError);
