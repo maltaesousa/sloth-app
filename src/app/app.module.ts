@@ -5,9 +5,11 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { ReservationService } from './reservation.service';
+import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 
 import { MyApp } from './app.component';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { CreateReservationPage } from '../pages/create-reservation/create-reservation';
@@ -18,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
     ProfilePage,
     CreateReservationPage
@@ -31,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
     ProfilePage,
     CreateReservationPage
@@ -39,7 +43,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide: 'APIUrl', useValue: 'http://localhost:8100/api'},
+    AuthService,
     ReservationService,
     UserService
   ]

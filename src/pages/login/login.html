@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Sloth</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Server</ion-label>
+      <ion-input
+        [(ngModel)]="server"
+        type="text"
+        value="http://localhost:8100/api">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input
+        [(ngModel)]="password"
+        type="password"
+        value="">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="padding">
+    <button ion-button primary block
+      (click)="login()">Sign In</button>
+  </div>
+</ion-content>

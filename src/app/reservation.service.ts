@@ -4,16 +4,17 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise'
 
 import { Reservation } from './reservation';
+import { AuthService } from './auth.service';
 
 @Injectable()
 
 export class ReservationService {
   constructor(
     private http: Http,
-    @Inject('APIUrl') private APIUrl:string
+    private authService: AuthService
   ) {}
 
-  private reservationsUrl = this.APIUrl + '/reservations';
+  private reservationsUrl = this.authService.getUrl() + '/reservations';
   //private headers = new Headers({'Content-Type': 'application/json'});
 
   getReservations(): Promise<Reservation[]> {
