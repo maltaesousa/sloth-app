@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import * as moment from 'moment';
+
 import { Reservation } from '../../app/reservation';
 import { ReservationService } from '../../app/reservation.service';
 import { OnInit } from '@angular/core';
@@ -21,10 +23,12 @@ export class HomePage {
   filter: String = new Date().toISOString();
 
   getReservations(): void {
-    this.reservationService.getReservations().then(res => this.reservations = res);
+    this.reservationService.getReservations()
+      .then(res => this.reservations = res);
   }
 
   ngOnInit(): void {
+    console.log(moment().format());
     this.getReservations();
   }
 
