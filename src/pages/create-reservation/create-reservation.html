@@ -18,18 +18,17 @@
       <ion-label>Resource</ion-label>
       <ion-select id="resource" name="resource"
         [(ngModel)]=reservation.resource>
-        <ion-option>Ydon 15</ion-option>
-        <ion-option>Ydon 16</ion-option>
-        <ion-option>Ydon 40</ion-option>
-        <ion-option>Ydon 50</ion-option>
+        <ion-option *ngFor="let res of resources">{{res.name}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Start date</ion-label>
       <ion-datetime
         id="begin" name="begin"
-        displayFormat="DD MMMM YYYY"
-        pickerFormat="DD/MMMM/YYYY"
+        displayFormat="DD MMMM YYYY H:mm"
+        pickerFormat="DD MMMM YYYY H:mm"
+        min="{{min.toISOString()}}"
+        max="{{max.toISOString()}}"
         [(ngModel)]="reservation.begin">
         </ion-datetime>
     </ion-item>
@@ -39,7 +38,7 @@
         id="end" name="end"
         displayFormat="DD MMMM YYYY"
         pickerFormat="DD/MMMM/YYYY"
-        [(ngModel)]="reservation.end">
+        [(ngModel)]="now">
         </ion-datetime>
     </ion-item>
   </form>

@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import * as moment from 'moment';
 
 import { Reservation } from '../../app/reservation';
 import { ReservationService } from '../../app/reservation.service';
-import { OnInit } from '@angular/core';
 
 import { CreateReservationPage } from '../create-reservation/create-reservation';
 
@@ -20,7 +19,11 @@ export class HomePage {
     private reservationService: ReservationService) { }
 
   reservations: Reservation[];
+  resources: any;
   filter: String = new Date().toISOString();
+  now: Date = new Date();
+  min = moment(this.now).subtract(5, 'years').toDate();
+  max = moment(this.now).add(5, 'years').toDate();
 
   getReservations(): void {
     this.reservationService.getReservations()

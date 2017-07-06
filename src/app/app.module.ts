@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { ReservationService } from './reservation.service';
+import { ResourceService } from './resource.service';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 
@@ -45,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     ReservationService,
+    ResourceService,
     UserService
   ]
 })

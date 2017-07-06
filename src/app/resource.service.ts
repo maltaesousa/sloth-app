@@ -1,17 +1,19 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise'
+import 'rxjs/add/operator/toPromise';
+
+import { AuthService } from './auth.service';
 
 @Injectable()
 
 export class ResourceService {
   constructor(
     private http: Http,
-    @Inject('APIUrl') private APIUrl:string
+    private authService: AuthService
   ) {}
 
-  private resourcesUrl = this.APIUrl + '/resources';
+  private resourcesUrl = this.authService.getUrl() + '/resources';
 
   getResources(): Promise<any> {
     return this.http.get(this.resourcesUrl)
