@@ -1,7 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-buttons end>
-      <button ion-button>Save</button>
+      <button ion-button
+        (click)="createReservation()">Save</button>
     </ion-buttons>
   </ion-navbar>
   <ion-toolbar color="primary">
@@ -17,8 +18,10 @@
     <ion-item>
       <ion-label>Resource</ion-label>
       <ion-select id="resource" name="resource"
-        [(ngModel)]=reservation.resource>
-        <ion-option *ngFor="let res of resources">{{res.name}}</ion-option>
+        [(ngModel)]="reservation.resource_id">
+        <ion-option
+          *ngFor="let res of resources"
+          [value]="res.id">{{res.name}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
@@ -36,9 +39,11 @@
       <ion-label>End date</ion-label>
       <ion-datetime
         id="end" name="end"
-        displayFormat="DD MMMM YYYY"
-        pickerFormat="DD/MMMM/YYYY"
-        [(ngModel)]="now">
+        displayFormat="DD MMMM YYYY H:mm"
+        pickerFormat="DD MMMM YYYY H:mm"
+        min="{{min.toISOString()}}"
+        max="{{max.toISOString()}}"
+        [(ngModel)]="reservation.end">
         </ion-datetime>
     </ion-item>
   </form>

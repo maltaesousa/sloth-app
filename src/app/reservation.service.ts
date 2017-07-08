@@ -15,7 +15,7 @@ export class ReservationService {
   ) {}
 
   private reservationsUrl = this.authService.getUrl() + '/reservations';
-  //private headers = new Headers({'Content-Type': 'application/json'});
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   getReservations(): Promise<Reservation[]> {
     return this.http.get(this.reservationsUrl)
@@ -27,6 +27,16 @@ export class ReservationService {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
+  }
+
+  create(reservation: any): Promise<Reservation> {
+    console.log(reservation);
+    return this.http
+      .post(this.reservationsUrl, reservation,
+      {headers: this.headers})
+      .toPromise()
+      .then(res => res.json() as Reservation)
+      .catch(this.handleError);
   }
   /**
   getReservation(id: number): Promise<Reservation> {
