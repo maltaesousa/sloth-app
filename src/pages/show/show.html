@@ -18,7 +18,7 @@
     <fieldset [disabled]="disabled">
       <ion-item>
         <ion-label>Resource</ion-label>
-        <ion-input>{{reservation.name}}</ion-input>
+        <ion-input [(ngModel)]="reservation.resource.name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Start date</ion-label>

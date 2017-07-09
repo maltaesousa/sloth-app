@@ -28,7 +28,8 @@ export class ShowPage {
         id: res.id,
         name: res.name,
         begin: moment(res.begin).toISOString(),
-        end: moment(res.end).toISOString()
+        end: moment(res.end).toISOString(),
+        resource: res.resource
       });
   }
 
