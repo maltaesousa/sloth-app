@@ -1,3 +1,9 @@
-page-home {
+button.list-button {
+  padding-left: 0;
+}
 
+ion-col {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

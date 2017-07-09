@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 import { Reservation } from '../../app/reservation';
 import { ReservationService } from '../../app/reservation.service';
@@ -31,12 +32,21 @@ export class HomePage {
   }
 
   ngOnInit(): void {
-    console.log(moment().format());
+    console.log('INIT FIRED!');
     this.getReservations();
   }
 
+  /**
+   * Opens create page as a Promise, waiting for the new data
+   */
   openPage() {
-    this.navCtrl.push(CreateReservationPage);
+    new Promise((resolve, reject) => {
+      this.navCtrl.push(CreateReservationPage, {resolve: resolve});
+    }).then(data => {
+      this.reservations.push(data as Reservation);
+      console.log(this.reservations);
+      _.orderBy(this.reservations, 'begin');
+    });
   }
 
 }

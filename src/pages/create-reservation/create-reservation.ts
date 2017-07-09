@@ -36,7 +36,9 @@ export class CreateReservationPage {
 
   createReservation(): void {
     this.reservationService.create(this.reservation)
-      .then(res => console.log(res));
+      .then(res => this.navCtrl.pop().then(
+        () => this.navParams.get('resolve')(res)
+      ));
   }
 
   ngOnInit(): void {
