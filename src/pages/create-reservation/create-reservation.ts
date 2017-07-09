@@ -44,6 +44,5 @@ export class CreateReservationPage {
 
   ngOnInit(): void {
     this.getResources();
-    console.log(this.reservation);
   }
 }

@@ -12,6 +12,7 @@ export class Reservation {
   public beginISO: string;
   public endISO: string;
   public resource: any;
+  public user: any;
 
   setISODates(): void {
     this.beginISO = moment(this.begin).toISOString();
