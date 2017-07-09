@@ -38,15 +38,15 @@ export class ReservationService {
       .then(res => res.json() as Reservation)
       .catch(this.handleError);
   }
-  /**
+
   getReservation(id: number): Promise<Reservation> {
     const url = `${this.reservationsUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Reservation)
+      .then(res => res.json() as Reservation)
       .catch(this.handleError);
   }
-
+/**
   create(name: string): Promise<Reservation> {
     return this.http
       .post(this.reservationsUrl, JSON.stringify({name: name}),

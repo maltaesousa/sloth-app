@@ -8,6 +8,7 @@ import { Reservation } from '../../app/reservation';
 import { ReservationService } from '../../app/reservation.service';
 
 import { CreateReservationPage } from '../create-reservation/create-reservation';
+import { ShowPage } from '../show/show';
 
 @Component({
   selector: 'page-home',
@@ -32,20 +33,29 @@ export class HomePage {
   }
 
   ngOnInit(): void {
-    console.log('INIT FIRED!');
     this.getReservations();
   }
 
   /**
    * Opens create page as a Promise, waiting for the new data
    */
-  openPage() {
+  newReservation(): void {
     new Promise((resolve, reject) => {
       this.navCtrl.push(CreateReservationPage, {resolve: resolve});
     }).then(data => {
       this.reservations.push(data as Reservation);
       console.log(this.reservations);
+      // TODO: Not working!
       _.orderBy(this.reservations, 'begin');
+    });
+  }
+
+  /**
+   * show details
+   */
+  showReservation(reservation: any): void {
+    this.navCtrl.push(ShowPage, {
+      id: reservation.id
     });
   }
 

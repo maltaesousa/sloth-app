@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export class Reservation {
 
   constructor(
@@ -7,4 +9,11 @@ export class Reservation {
     public end: Date
   ) {}
 
+  public beginISO: string;
+  public endISO: string;
+
+  setISODates(): void {
+    this.beginISO = moment(this.begin).toISOString();
+    this.endISO = moment(this.end).toISOString();
+  }
 }

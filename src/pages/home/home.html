@@ -22,7 +22,9 @@
 
 <ion-content>
   <ion-list>
-    <button class="list-button" ion-item *ngFor="let reservation of reservations">
+    <button class="list-button"
+      ion-item *ngFor="let reservation of reservations"
+      (click)="showReservation(reservation)">
       <ion-grid>
         <ion-row>
           <ion-col col-8>
@@ -40,7 +42,7 @@
       </ion-grid>
     </button>
   </ion-list>
-  <ion-fab right bottom (click)="openPage()">
+  <ion-fab right bottom (click)="newReservation()">
     <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

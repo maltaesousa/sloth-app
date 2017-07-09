@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button ion-button
+        (click)="modifyReservation()">Modifiy</button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar 
+    color="primary">
+    <ion-title *ngIf="reservation">
+      {{reservation.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="reservation">
+    <fieldset [disabled]="disabled">
+      <ion-item>
+        <ion-label>Resource</ion-label>
+        <ion-input>{{reservation.name}}</ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Start date</ion-label>
+        <ion-datetime
+          id="begin" name="begin"
+          displayFormat="DD MMMM YYYY H:mm"
+          pickerFormat="DD MMMM YYYY H:mm"
+          [(ngModel)]="reservation.begin">
+          </ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>End date</ion-label>
+        <ion-datetime
+          id="end" name="end"
+          displayFormat="DD MMMM YYYY H:mm"
+          pickerFormat="DD MMMM YYYY H:mm"
+          [(ngModel)]="reservation.end">
+          </ion-datetime>
+      </ion-item>
+    </fieldset>
+  </ion-list>
+</ion-content>

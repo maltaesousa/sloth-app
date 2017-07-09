@@ -24,6 +24,7 @@ export class CreateReservationPage {
     begin: new Date().toISOString(),
     end: new Date(moment().add(4, 'hours').toDate()).toISOString()
   };
+
   resources: any;
   now: Date = new Date();
   min = moment(this.now).subtract(5, 'years').toDate();
