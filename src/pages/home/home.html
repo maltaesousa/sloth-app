@@ -8,8 +8,8 @@
       placeholder="Today ▼"
       displayFormat="DD MMMM YYYY"
       pickerFormat="DD MMMM YYYY"
-      min="{{min.toISOString()}}"
-      max="{{max.toISOString()}}"
+      min="{{min}}"
+      max="{{max}}"
       [(ngModel)]="filter">
       </ion-datetime>
     <ion-buttons end>
@@ -36,7 +36,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <small>{{reservation.begin | slice:0:-3 | date:'yMdjm'}} - {{ reservation.end | slice:0:-3 | date:'yMdjm' }} </small>
+            <small>{{reservation.begin | date:'yMdjm'}} - {{reservation.end | date:'yMdjm'}}</small>
           </ion-col>
         </ion-row>
       </ion-grid>

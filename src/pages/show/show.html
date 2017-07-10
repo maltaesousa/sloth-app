@@ -18,7 +18,12 @@
     <fieldset [disabled]="disabled">
       <ion-item>
         <ion-label>Resource</ion-label>
-        <ion-input [(ngModel)]="reservation.resource.name"></ion-input>
+        <ion-select id="resource" name="resource"
+          [(ngModel)]="reservation.resource_id">
+          <ion-option
+            *ngFor="let res of [reservation.resource]"
+            [value]="res.id">{{res.name}}</ion-option>
+        </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Start date</ion-label>
