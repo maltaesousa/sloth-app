@@ -27,8 +27,8 @@
       (click)="showReservation(reservation)">
       <ion-grid>
         <ion-row>
-          <ion-col col-1 *ngIf="i>0">
-            {{reservations[i-1].name}}
+          <ion-col col-1 *ngIf="condition(reservation, i)">
+            {{1}}
           </ion-col>
           <ion-col col-7>
             {{reservation.name}}
