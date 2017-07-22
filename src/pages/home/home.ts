@@ -60,11 +60,11 @@ export class HomePage {
     if (i > 0) {
       if (moment(ress[i].begin).day() == moment(ress[i-1].begin).day()) {
         console.log(moment(ress[i].begin).day());
-        return true;
+        return false;
       }
-      return false;
+      return true;
     }
-    return false;
+    return true;
   }
 
   ngOnInit(): void {

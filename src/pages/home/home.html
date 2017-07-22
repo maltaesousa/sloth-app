@@ -28,7 +28,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-1 *ngIf="condition(reservation, i)">
-            {{1}}
+            <h2>{{reservation.begin | date:'d'}}</h2>
           </ion-col>
           <ion-col col-7>
             {{reservation.name}}
@@ -36,8 +36,6 @@
           <ion-col text-right>
             <small><em>{{reservation.user.login}}</em></small>
           </ion-col>
-        </ion-row>
-        <ion-row>
           <ion-col>
             <small>{{reservation.begin | date:'yMdjm'}} - {{reservation.end | date:'yMdjm'}}</small>
           </ion-col>
