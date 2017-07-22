@@ -23,14 +23,17 @@
 <ion-content>
   <ion-list>
     <button class="list-button"
-      ion-item *ngFor="let reservation of reservations"
+      ion-item *ngFor="let reservation of reservations; let i = index;"
       (click)="showReservation(reservation)">
       <ion-grid>
         <ion-row>
-          <ion-col col-8>
+          <ion-col col-1 *ngIf="i>0">
+            {{reservations[i-1].name}}
+          </ion-col>
+          <ion-col col-7>
             {{reservation.name}}
           </ion-col>
-          <ion-col col-4 text-right>
+          <ion-col text-right>
             <small><em>{{reservation.user.login}}</em></small>
           </ion-col>
         </ion-row>
