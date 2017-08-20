@@ -2,7 +2,7 @@
   <ion-navbar color="primary">
     <ion-title>Sloth</ion-title>
     <ion-buttons end>
-      <img end height="20px" src="../../assets/icon/favicon.ico" alt="logo">
+      <img end height="20px" src="assets/icon/favicon.ico" alt="logo">
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -14,13 +14,13 @@
       <ion-input
         [(ngModel)]="server"
         type="text"
-        value="http://localhost:8100/api">
+        value="https://salty-fortress-95112.herokuapp.com/">
       </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
+      <ion-input [(ngModel)]="username" type="text" value="" placeholder="laisser vide"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -28,6 +28,7 @@
       <ion-input
         [(ngModel)]="password"
         type="password"
+        placeholder="laisser vide"
         value="">
       </ion-input>
     </ion-item>
