@@ -27,7 +27,8 @@
       (click)="showReservation(reservation)">
       <ion-grid>
         <ion-row>
-          <ion-col col-1 *ngIf="condition(reservation, i)">
+          <!--<ion-col col-1 *ngIf="condition(reservation, i)">-->
+          <ion-col col-1>
             <h2>{{reservation.begin | date:'d'}}</h2>
           </ion-col>
           <ion-col col-7>
