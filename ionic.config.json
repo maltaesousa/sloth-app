@@ -6,6 +6,9 @@
     {
       "path": "/api",
       "proxyUrl": "https://salty-fortress-95112.herokuapp.com/api"
-    }  
-  ]
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
